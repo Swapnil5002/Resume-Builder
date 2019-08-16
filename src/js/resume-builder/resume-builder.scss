@@ -1,0 +1,77 @@
+.name{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
+}
+h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+.education{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px auto;
+}
+.extra{
+    grid-auto-columns: 1fr;
+    padding: 2%; 
+}
+input{
+    border: 0;
+    border-bottom: 1px solid red;
+    outline: 0;
+    width: 100%;
+    
+}
+textarea{
+    border: 0;
+    border-bottom: 1px solid red;
+    outline: 0;
+    width: 98%;
+}
+.nav{
+    overflow: hidden;
+    background-color: #e7e7e7;
+    padding: 20px 10px;
+}
+button{
+    background-color: #e7e7e7;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+button:hover{
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100%;
+    font-weight: 200;
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 0 auto;
+}
+

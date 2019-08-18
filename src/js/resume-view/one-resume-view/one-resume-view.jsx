@@ -4,23 +4,29 @@ import './one-resume-view.scss';
 export default class OneResumeView extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = {};
+        this.handleClick = this.handleClick.bind(this)
     }
+    
+    handleClick() {
+        this.props.setDataForResumeBuilder(this.props.resume)
+    }
+
     render() {
         return (
-            <div className="resume">
+            <div className="resume" onClick={this.handleClick}>
                 <h2>{this.props.resume.fullName}</h2>
                 <h5>{this.props.resume.email}</h5>
-                <h5>{this.props.resume.molbile}</h5>
                 <h5>{this.props.resume.address}</h5>
                 <h5>{this.props.resume.city}</h5>
-                <h5>{this.props.resume.mobile}</h5>
+                <h5>{this.props.resume.phone}</h5>
             <div className="objective">
                 {this.props.resume.objective}
             </div>
                 <h3>Education</h3>
                 <div className="">
                     <table>
+                        <tbody>
                         <tr>
                             <th>Course</th>
                             <th>University</th>
@@ -37,7 +43,17 @@ export default class OneResumeView extends Component {
                             </tr>
                             );
                         })}
+                        </tbody>
                     </table>
+                    
+                    <h3>Skills</h3>
+                    {this.props.resume.skills.map((skills, i) => {
+                        return(
+                          <div className="skill">
+                            <li key={i}>{this.props.resume.skills[i]}</li>
+                          </div>
+                        );
+                    })}
                     <div>
                         <h3>Projects</h3>
                         {this.props.resume.project}

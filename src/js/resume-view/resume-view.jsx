@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './resume-view.scss';
 import OneResumeView from './one-resume-view/one-resume-view.jsx';
-import * as Resume from './resume.json';
 
 export default class ResumeViewer extends Component {
     constructor(props) {
@@ -11,8 +10,8 @@ export default class ResumeViewer extends Component {
     render() { 
         return (
         <div className="resume-view">
-            {Object.entries(Resume.default).map((resume, i) => {
-                return <div key={i}><OneResumeView key={i} resume={resume[1]} /></div>
+            {Object.entries(this.props.resumes).map((resume, i) => {
+                return <div key={i}><OneResumeView key={i} resume={resume[1]} setDataForResumeBuilder={this.props.setDataForResumeBuilder} /></div>
             })}
         </div>
         );

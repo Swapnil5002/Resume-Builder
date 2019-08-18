@@ -1,8 +1,10 @@
 .resume {
-    border: 3px solid black;
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
+    border: 1px solid black;
+    width: 70%;
+    margin: 4px auto;
+    padding: 4px;
+    background-color: #e7e7e7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2{
     color: cadetblue;
@@ -22,11 +24,15 @@ table{
 }
 th{
     background-color: cadetblue;
+    text-align: center;
 }
 td{
     border:1px solid cadetblue;
+    text-align: center;
 }
 .objective{
     margin: 30px auto;
 }
-
+.skill{
+    margin: 0 auto;
+}

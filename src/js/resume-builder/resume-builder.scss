@@ -1,7 +1,8 @@
 .name{
     display: grid;
     grid-template-rows: 1fr 1fr;
-    width: 90%;
+    width: 95%;
+    margin: 0 auto;
 }
 h2{
     display: block;
@@ -23,17 +24,27 @@ h2{
     padding: 2%; 
 }
 input{
-    border: 0;
-    border-bottom: 1px solid red;
-    outline: 0;
     width: 100%;
-    
+    padding: 12px 20px;
+    margin: px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 textarea{
-    border: 0;
-    border-bottom: 1px solid red;
-    outline: 0;
-    width: 98%;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 0 auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 .nav{
     overflow: hidden;
@@ -41,7 +52,7 @@ textarea{
     padding: 20px 10px;
 }
 button{
-    background-color: #e7e7e7;
+    background-color: #6e746673;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -49,10 +60,10 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 40px auto;
 }
 button:hover{
-    background-color: green;
+    background-color: gray;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -60,12 +71,13 @@ button:hover{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 40px auto;
 }
 label{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 100%;
     font-weight: 200;
+    margin: 2px 2px; 
 }
 
 .info-section {
@@ -74,4 +86,14 @@ label{
     width: 100%;
     margin: 0 auto;
 }
-
+.address{
+    margin: 20px 0;
+}
+.project{
+    margin: 20px 0;
+}
+.quantity::-webkit-inner-spin-button, 
+.quantity::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+     margin: 0;
+}

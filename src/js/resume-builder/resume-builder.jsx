@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import jspdf from 'jspdf';
 import './resume-builder.scss';
+import $ from 'jquery';
 
 export default class ResumeBuilder extends Component {
     constructor(props) {
@@ -10,6 +12,7 @@ export default class ResumeBuilder extends Component {
             phone: ""
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleDownloadPdf = this.handleDownloadPdf.bind(this);
     }
 
     componentWillReceiveProps(props) {
@@ -46,30 +49,85 @@ export default class ResumeBuilder extends Component {
             city: this.state.resume.city,
             project: this.state.resume.project,
             interests: this.state.resume.interests,
-            skills: this.state.resume.skills
-
+            skills: this.state.resume.skills, 
+            resumeId: this.state.resume.id
         })
     }
 
     handleChange(event) {
+        localStorage.setItem("event", event);
         const name = event.target.name;
+        const id = Number(event.currentTarget.parentElement.id);
+        const educationChanged = event.currentTarget.parentElement.className == "education" ? true : false;
         this.setState({
-            [name]: event.target.value
+            [name]: event.target.value,
+            educationChanged: educationChanged,
+            educationChangedId: id,
+            key: name,
+            value: event.target.value
+        }, () => {
+            this.prpareResumeUpdateObject(event);
         });
-        this.prpareResumeUpdateObject(event);
     }
 
     prpareResumeUpdateObject(event) {
-        let updateObj = {};
-        if (event.srcElement.parentElement.className == "education") {
-            let Obj = {};
+        let Obj = {};
+        if (this.state.educationChanged) {
+            switch(this.state.educationChangedId) {
+                case 1: Obj.key = "education";
+                    Obj.value = {
+                        id: 1,
+                        course: this.state.masters,
+                        university: this.state.university,
+                        year: this.state.mastersYear,
+                        percentage: this.state.percentage
+                    };
+                break;
+                case 2: Obj.key = "education";
+                Obj.value = {
+                    id: 2,
+                    course: this.state.bachelor,
+                    university: this.state.buniversity,
+                    year: this.state.bYear,
+                    percentage: this.state.bpercentage
+                };
+                break;
+                case 3: Obj.key = "education";
+                Obj.value = {
+                    id: 3,
+                    course: this.state.iSchool,
+                    university: this.state.iUniversity,
+                    year: this.state.iYear,
+                    percentage: this.state.iPercentage
+                };
+                break;
+                case 4: Obj.key = "education";
+                Obj.value = {
+                    id: 4,
+                    course: this.state.hSchool,
+                    university: this.state.hUniversity,
+                    year: this.state.hYear,
+                    percentage: this.state.hPercentage
+                };
+                break;
+            }
+        } else {
+            Obj =  {key: this.state.key, value: this.state.value};
+        }
 
-        } 
-        this.props.updateResumeView(this.state.resume.id, {key: name, value: event.target.value});
+        this.props.updateResumeView(this.state.resume.id, Obj);
     }
 
-    onClick(){
+    handleDownloadPdf() {
+        const doc = new jspdf();
+        let source = document.getElementById(`resume${this.state.resumeId}`);
         
+        doc.fromHTML(
+            source,
+            40,
+            40)
+        
+        doc.output("dataurlnewwindow");
     }
 
     render() { 
@@ -208,7 +266,7 @@ export default class ResumeBuilder extends Component {
                 </div>
              
                 <div className="button">
-                    <a href="Resume.pdf" download="How-to-download-file.pdf"><button>Download</button></a>
+                    <a href="#"><button onClick={this.handleDownloadPdf}>Download</button></a>
                 </div>
                 </div>
                   

@@ -30,7 +30,7 @@ export default class Container extends Component {
         Object.keys(resumes).forEach((key) => {
             if(resumes[key].id == resumeId) {
                Object.keys(resumes[key]).forEach(objKey => {
-                    if (objKey == keyChanged) {
+                    if (objKey == keyChanged && keyChanged !== "education") {
                         Obj[objKey] = valueChanged;
                     } else {
                         Obj[objKey] = resumes[key][objKey];

@@ -1,8 +1,9 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Resume-builder",
   "main": "index.js",
+  "homepage": "https://github.com/Swapnil5002/Resume-Builder",
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open --config webpack.dev.js",
@@ -11,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^2.1.1",
+    "html2canvas": "^1.0.0-rc.3",
+    "jquery": "^3.4.1",
+    "jspdf": "^1.5.3",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

@@ -14,7 +14,7 @@ export default class OneResumeView extends Component {
 
     render() {
         return (
-            <div className="resume" onClick={this.handleClick}>
+            <div className="resume" id={`resume${this.props.resume.id}`} onClick={this.handleClick}>
                 <h2>{this.props.resume.fullName}</h2>
                 <h5>{this.props.resume.email}</h5>
                 <h5>{this.props.resume.address}</h5>
